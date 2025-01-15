@@ -40,7 +40,7 @@ const Header = () => {
 
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "../assets/Resume_4.pdf";
+    link.href = "../assets/Resume_NgShiYang.pdf";
     link.download = "Resume_NgShiYang.pdf";
     link.click();
   };

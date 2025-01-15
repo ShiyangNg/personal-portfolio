@@ -63,6 +63,9 @@ const Skills = () => {
           <div className="border py-2 px-4 mb-2 rounded-lg">MongoDB</div>
         </Reveal>
         <Reveal>
+          <div className="border py-2 px-4 mb-2 rounded-lg">Express.js</div>
+        </Reveal>
+        <Reveal>
           <div className="border py-2 px-4 mb-2 rounded-lg">Motion</div>
         </Reveal>
       </div>
