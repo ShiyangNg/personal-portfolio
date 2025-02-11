@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
-import { Reveal } from "../components/ultilities/Reveal";
+import { motion, useScroll, useTransform } from "framer-motion";
+import imageFull from '../assets/images/image-full.jpg'
+import imageBottom from '../assets/images/image-bottom.png'
 const MultiLayerParallax = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -44,7 +45,7 @@ const MultiLayerParallax = () => {
         style={{
           scale,
           rotate,
-          backgroundImage: `url(/image-full.jpg)`,
+          backgroundImage: `url(${imageFull})`,
           backgroundPosition: "bottom",
           backgroundSize: "cover",
           y: backgroundY,
@@ -56,7 +57,7 @@ const MultiLayerParallax = () => {
       <motion.div
         className="absolute inset-0 z-20 px-4"
         style={{
-          backgroundImage: `url(/image-bottom.png)`,
+          backgroundImage: `url(${imageBottom})`,
           backgroundPosition: "bottom",
           backgroundSize: "cover",
 
