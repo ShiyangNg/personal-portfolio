@@ -11,8 +11,8 @@ const About = () => {
     offset: ["start start", "end end"],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  // const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  // const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const isSticky = useTransform(scrollYProgress, [0.8, 1], [false, true]); // Transition near 200vh
 
   const Section1 = () => {
@@ -73,6 +73,16 @@ const About = () => {
           <Reveal>
             <motion.div>
               I enjoy solving complex problems and bringing ideas to life.
+            </motion.div>
+          </Reveal>
+          <Reveal>
+            <motion.div>
+              Currently also learning AI during my free time. 
+            </motion.div>
+          </Reveal>
+          <Reveal>
+            <motion.div>
+              Hope to gain early exposure in the tech industry. 
             </motion.div>
           </Reveal>
         </div>

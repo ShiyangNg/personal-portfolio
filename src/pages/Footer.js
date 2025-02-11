@@ -1,5 +1,5 @@
 import React from 'react'
-import FooterContent from './Contact'
+import FooterContent from './FooterContent'
 
 export default function Footer() {
   return (

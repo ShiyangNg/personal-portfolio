@@ -44,6 +44,7 @@ const Header = () => {
     link.download = "Resume_NgShiYang.pdf";
     link.click();
   };
+  
   return (
     <div
       className={`py-4 px-8 sticky top-0 w-full flex text-white items-center font-montserrat transition-all duration-300 z-50 ${

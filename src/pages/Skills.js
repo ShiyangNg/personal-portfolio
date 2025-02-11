@@ -8,7 +8,7 @@ const Skills = () => {
     target: ref,
     offset: ["start start", "end end"],
   });
-  const isSticky = useTransform(scrollYProgress, [0.8, 1], [false, true]); // Transition near 200vh
+  const isSticky = useTransform(scrollYProgress, [0.8, 1], [false, true]); 
   const scale = useTransform(scrollYProgress, [0, 0.525], [0.7, 1]);
   const rotate = useTransform(scrollYProgress, [0, 1], [-5, 0]);
   return (
