@@ -82,7 +82,7 @@ const About = () => {
           </Reveal>
           <Reveal>
             <motion.div>
-              Hope to gain early exposure in the tech industry. 
+              Aiming to gain early exposure in the tech industry. 
             </motion.div>
           </Reveal>
         </div>

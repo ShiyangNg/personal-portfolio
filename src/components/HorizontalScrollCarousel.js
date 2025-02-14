@@ -1,6 +1,9 @@
 import { motion, useTransform, useScroll, transform } from "framer-motion";
 import { useRef } from "react";
 import { Reveal } from "./ultilities/Reveal";
+import EcoEats from '../assets/images/EcoEats.png';
+import WeatherApp from '../assets/images/WeatherApp-Dark Mode.png'
+import RecipeBook from '../assets/images/RecipeBook.png'
 
 const HorizontalScrollCard = () => {
   const ref = useRef(null);
@@ -26,8 +29,10 @@ const HorizontalScrollCarousel = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh]">
-
+    <section ref={targetRef} className="relative h-[400vh]">
+      <div className="text-7xl font-bold pb-4">
+        Projects
+      </div>
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-12"> 
           {cards.map((card) => {
@@ -35,6 +40,8 @@ const HorizontalScrollCarousel = () => {
           })}
         </motion.div>
       </div>
+
+  
     </section>
   );
 };
@@ -43,7 +50,7 @@ const Card = ({ card }) => {
   return (
     <div>
 <motion.div
-    whileHover={{scale: 1.05, rotate: '1deg'}}
+    whileHover={{scale: 1.05}}
       key={card.id}
       className="group relative h-[500px] w-[500px] overflow-hidden bg-neutral-200"
     >
@@ -56,7 +63,7 @@ const Card = ({ card }) => {
         className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
       ></div>
       <div className="absolute inset-0 z-10 grid place-content-center">
-        <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+        <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-xs">
           <Reveal>{card.title}</Reveal>
         </p>
 
@@ -75,39 +82,25 @@ export default HorizontalScrollCard;
 
 const cards = [
   {
-    url: "/imgs/abstract/1.jpg",
+    url: EcoEats,
     title: "EcoEats",
-    description: "React Firebase Tailwind",
+    description: "ReactJS, Firebase, TailwindCSS",
     id: 1,
   },
   {
-    url: "/imgs/abstract/2.jpg",
-    title: "Title 2",
+    url: WeatherApp,
+    title: "Weather Forecast App",
+    description: "Vanilla JavaScript, Firebase, TailwindCSS",
     id: 2,
   },
   {
-    url: "/imgs/abstract/3.jpg",
-    title: "Title 3",
+    url: RecipeBook,
+    title: "Recipe Book App",
     id: 3,
   },
   {
     url: "/imgs/abstract/4.jpg",
     title: "Title 4",
     id: 4,
-  },
-  {
-    url: "/imgs/abstract/5.jpg",
-    title: "Title 5",
-    id: 5,
-  },
-  {
-    url: "/imgs/abstract/6.jpg",
-    title: "Title 6",
-    id: 6,
-  },
-  {
-    url: "/imgs/abstract/7.jpg",
-    title: "Title 7",
-    id: 7,
-  },
+  }
 ];

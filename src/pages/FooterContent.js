@@ -25,21 +25,15 @@ const Section1 = () => {
 const Section2 = () => {
   return (
     <div className="flex justify-between items-end">
+      <Reveal>
       <motion.h1
-        initial={{ y: 0, x: 0, opacity: 0 }}
-        whileInView={{ opacity: 1, y: 0, x: 0 }}
-        transition={{
-          type: "string",
-          stiffness: 100,
-          duration: 1,
-          ease: "easeInOut",
-          delay: 0.25,
-        }}
         // #d8d5db
         className="text-white text-[12vw] leading-[0.8] mt-10 text-block"
       >
         Get In Touch
       </motion.h1>
+      </Reveal>
+      
     </div>
   );
 };

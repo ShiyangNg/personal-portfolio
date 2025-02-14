@@ -23,10 +23,10 @@ const Projects = () => {
           // scale,
          }}
          
-        className="p-24 relative h-[300vh] bg-blue-500 text-white"
+        className="p-24 relative  bg-blue-500 text-white"
       >
         <Reveal>
-        <h1 className=" text-7xl font-bold pb-4">Projects</h1>
+        {/* <h1 className=" text-7xl font-bold pb-4">Projects</h1> */}
         </Reveal>
         {/* <Reveal>
         <h1 className=" text-2xl">Some projects that I have done</h1>
