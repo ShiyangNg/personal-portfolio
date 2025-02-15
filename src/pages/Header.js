@@ -3,6 +3,7 @@ import { delay, motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Reveal } from "../components/ultilities/Reveal";
 import { Link } from "react-scroll";
+import AboutImage from '../assets/images/nicolas-prieto-sMJaf08ugD0-unsplash.jpg'
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -138,8 +139,6 @@ const Header = () => {
             className="ml-auto px-2 py-2 rounded-md border border-red-500"
             whileHover={{
               backgroundColor: "#750505",
-              scale: 1.1,
-              borderRadius: '20%'
             }}
             transition={{ type: "spring", stiffness: 300, duration: 1 }}
             onClick={downloadResume}

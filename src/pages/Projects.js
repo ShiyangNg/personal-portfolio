@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Reveal } from "../components/ultilities/Reveal";
 import { motion, useTransform, useScroll } from "framer-motion";
 import HorizontalScrollCard from "../components/HorizontalScrollCarousel";
+import AboutImage from '../assets/images/photo-1633547136812-6c4baeebbeda.avif'
 
 const Projects = () => {
       const ref = useRef(null);
@@ -20,6 +21,7 @@ const Projects = () => {
             backgroundImage:`url(https://images.unsplash.com/photo-1623333769926-a34d46b5fbdb?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
             position: isSticky ? "sticky" : "relative",
             top: isSticky ? "0px" : "auto",
+    
           // scale,
          }}
          

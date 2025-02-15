@@ -2,11 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { Reveal } from "../components/ultilities/Reveal";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { Button, message, Space } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function FooterContent() {
   return (
     // #4E4E5A
-    <div className="font-montserrat bg-[#4E4E5A] py-8 px-12 h-full w-full flex flex-col justify-between">
+    <div className="font-montserrat bg-[#171716] py-8 px-12 h-full w-full flex flex-col justify-between">
       <Section1 />
       <Section2 />
       <Section3 />
@@ -26,14 +28,13 @@ const Section2 = () => {
   return (
     <div className="flex justify-between items-end">
       <Reveal>
-      <motion.h1
-        // #d8d5db
-        className="text-white text-[12vw] leading-[0.8] mt-10 text-block"
-      >
-        Get In Touch
-      </motion.h1>
+        <motion.h1
+          // #d8d5db
+          className="text-white text-[12vw] leading-[0.8] mt-10 text-block"
+        >
+          Get In Touch
+        </motion.h1>
       </Reveal>
-      
     </div>
   );
 };
@@ -45,6 +46,44 @@ const Section3 = () => {
     navigator.clipboard.writeText(email).then(() => {
       messageApi.success("Email copied to clipboard!");
     });
+  };
+
+  const [showArrow, setShowArrow] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = document.documentElement.scrollTop;
+      const clientHeight = document.documentElement.clientHeight;
+  
+      // Show arrow when user is near the bottom 
+      if (scrollTop + clientHeight >= scrollHeight - 100) {
+        setShowArrow(true);
+      } else {
+        setShowArrow(false);
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+    
+  }, []);
+
+  const scrollToTop = () => {
+    const duration = 1500; 
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    const animateScroll = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1); 
+
+      window.scrollTo(0, start * (1 - progress));
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
   };
 
   return (
@@ -111,23 +150,36 @@ const Section3 = () => {
           </motion.div>
         </Reveal>
       </div>
-
-      <motion.p
-        initial={{ y: -100, x: 100 }}
-        whileInView={{ opacity: 1, y: 0, x: 0 }}
-        transition={{
-          type: "string",
-          stiffness: 100,
-          duration: 1,
-          ease: "easeInOut",
-          delay: 0.25,
-        }}
-        className="text-white opacity-0"
-      >
-        © 2025 Ng Shi Yang
-        {/* <br />
+      <div>
+        <motion.div
+          initial={{ opacity: 0, y: 50  }}
+          animate={{ opacity: showArrow ? 1 : 0, y: showArrow ? 0 : 50 }}
+          transition={{ duration: 1 }}
+          className="flex justify-end mb-8 cursor-pointer"
+        >
+          <FontAwesomeIcon
+            onClick={scrollToTop}
+            icon={faArrowUp}
+            className="text-white text-4xl"
+          />
+        </motion.div>
+        <motion.p
+          initial={{ y: -100, x: 100 }}
+          whileInView={{ opacity: 1, y: 0, x: 0 }}
+          transition={{
+            type: "string",
+            stiffness: 100,
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.25,
+          }}
+          className="text-white opacity-0"
+        >
+          © 2025 Ng Shi Yang
+          {/* <br />
         All rights reserved. */}
-      </motion.p>
+        </motion.p>
+      </div>
     </div>
   );
 };

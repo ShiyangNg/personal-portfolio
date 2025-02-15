@@ -3,7 +3,9 @@ import { Reveal } from "../components/ultilities/Reveal";
 import { motion, useTransform, useScroll, delay } from "framer-motion";
 import Skills from "./Skills";
 import Projects from "./Projects";
-import HorizontalScrollCard from "../components/HorizontalScrollCarousel";
+import AboutImage from '../assets/images/photo-1633547136812-6c4baeebbeda.avif'
+import AboutCard from "../components/AboutCard";
+
 const About = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -46,7 +48,7 @@ const About = () => {
           scale,
           rotate,
 
-          backgroundImage: `url(https://images.unsplash.com/photo-1731862872903-1d39fe0c10f8?q=80&w=2708&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
+          backgroundImage: `url(${AboutImage})`,
         }}
         className="sticky h-[100vh] font-montserrat text-white p-24"
       >
