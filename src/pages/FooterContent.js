@@ -68,7 +68,7 @@ const Section3 = () => {
   }, []);
 
   const scrollToTop = () => {
-    const duration = 1500; 
+    const duration = 2000; 
     const start = window.scrollY;
     const startTime = performance.now();
 

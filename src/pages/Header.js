@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Reveal } from "../components/ultilities/Reveal";
-
+import About from "./About";
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
@@ -22,7 +22,7 @@ const Header = () => {
       const clientHeight = document.documentElement.clientHeight;
 
       // If scrolled to the bottom (adjust threshold if needed)
-      if (scrollTop + clientHeight >= scrollHeight - 70) {
+      if (scrollTop + clientHeight >= scrollHeight - 100) {
         setShowHeader(false); // Hide header
       } else {
         setShowHeader(true); // Show header
@@ -91,7 +91,7 @@ const Header = () => {
       }`}
     >
       <motion.button
-        onClick={() => scrollToHeight(window.innerHeight * 2.5 - 140)}
+        onClick={() => scrollToHeight(window.innerHeight * 2.5 -140)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="pr-4"
@@ -100,7 +100,7 @@ const Header = () => {
         <Reveal>About</Reveal>
       </motion.button>
       <motion.button
-        onClick={() => scrollToHeight(window.innerHeight * 3.5 - 140)}
+        onClick={() => scrollToHeight(window.innerHeight * 3.5 -140)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="pr-4"

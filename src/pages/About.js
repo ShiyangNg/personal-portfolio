@@ -6,7 +6,7 @@ import Projects from "./Projects";
 import AboutImage from '../assets/images/photo-1633547136812-6c4baeebbeda.avif'
 import AboutCard from "../components/AboutCard";
 
-const About = () => {
+const About = ({id}) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -19,9 +19,10 @@ const About = () => {
 
   const Section1 = () => {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [0, -10]);
+    const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
     return (
       <motion.div
+      id= {id}
         scrollYProgress={scrollYProgress}
         style={{
           scale,
@@ -107,10 +108,9 @@ const About = () => {
   return (
     <main className="relative h-[700vh]">
       <Section1 />
-      <Section2 id="about" />
-      <Skills />
-      <Projects />
-      {/* <HorizontalScrollCard/> */}
+      <Section2 id="about"/>
+      <Skills/>
+      <Projects/>
     </main>
   );
 };

@@ -38,14 +38,10 @@ function App() {
     <div className="bg-black mx-auto">
       <ScrollProgressBar />
       <Header />
-
-      <div className="">
-        <Hero />
-        <MultiLayerParallax />
-        <About />
-        {/* <Skills/> */}
-        <Footer />
-      </div>
+      <Hero />
+      <MultiLayerParallax />
+      <About />
+      <Footer />
     </div>
   );
 }
