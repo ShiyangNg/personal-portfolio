@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/personal-portfolio/static/css/main.7c2685e7.css",
-    "main.js": "/personal-portfolio/static/js/main.a1bc8c7a.js",
+    "main.css": "/personal-portfolio/static/css/main.9d515dea.css",
+    "main.js": "/personal-portfolio/static/js/main.f42070ec.js",
     "static/media/image-bottom.png": "/personal-portfolio/static/media/image-bottom.4f35e455198bfe6291f1.png",
     "static/media/EcoEats.png": "/personal-portfolio/static/media/EcoEats.cb3e5d93582243c3a899.png",
     "static/media/image-full.jpg": "/personal-portfolio/static/media/image-full.517b29c99265f5c17f6e.jpg",
     "static/media/RecipeBook.png": "/personal-portfolio/static/media/RecipeBook.97b1a313fa049b57921e.png",
     "static/media/WeatherAppDarkMode.png": "/personal-portfolio/static/media/WeatherAppDarkMode.df6e838fa9780ded8fe4.png",
+    "static/media/photo-1633547136812-6c4baeebbeda.avif": "/personal-portfolio/static/media/photo-1633547136812-6c4baeebbeda.d258590487f637c1e251.avif",
     "index.html": "/personal-portfolio/index.html",
-    "main.7c2685e7.css.map": "/personal-portfolio/static/css/main.7c2685e7.css.map",
-    "main.a1bc8c7a.js.map": "/personal-portfolio/static/js/main.a1bc8c7a.js.map"
+    "main.9d515dea.css.map": "/personal-portfolio/static/css/main.9d515dea.css.map",
+    "main.f42070ec.js.map": "/personal-portfolio/static/js/main.f42070ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c2685e7.css",
-    "static/js/main.a1bc8c7a.js"
+    "static/css/main.9d515dea.css",
+    "static/js/main.f42070ec.js"
   ]
 }
