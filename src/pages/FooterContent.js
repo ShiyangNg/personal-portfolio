@@ -8,7 +8,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 export default function FooterContent() {
   return (
     // #4E4E5A
-    <div className="font-montserrat bg-[#171716] py-8 px-12 h-full w-full flex flex-col justify-between">
+    <div className="font-montserrat bg-[#4E4E5A] py-6 px-10 h-full w-full flex flex-col justify-between">
       <Section1 />
       <Section2 />
       <Section3 />
@@ -54,27 +54,26 @@ const Section3 = () => {
       const scrollHeight = document.documentElement.scrollHeight;
       const scrollTop = document.documentElement.scrollTop;
       const clientHeight = document.documentElement.clientHeight;
-  
-      // Show arrow when user is near the bottom 
+
+      // Show arrow when user is near the bottom
       if (scrollTop + clientHeight >= scrollHeight - 100) {
         setShowArrow(true);
       } else {
         setShowArrow(false);
       }
-    }
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-    
   }, []);
 
   const scrollToTop = () => {
-    const duration = 2000; 
+    const duration = 2000;
     const start = window.scrollY;
     const startTime = performance.now();
 
     const animateScroll = (currentTime) => {
       const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1); 
+      const progress = Math.min(elapsed / duration, 1);
 
       window.scrollTo(0, start * (1 - progress));
 
@@ -116,43 +115,55 @@ const Section3 = () => {
         <Reveal>
           <div className="font-bold">SOCIAL</div>
         </Reveal>
-        <Reveal>
-          <motion.div
-            className="cursor-pointer"
-            onClick={() =>
-              window.open(
-                "https://www.linkedin.com/in/shi-yang-ng-0237242ba/",
-                "_blank"
-              )
-            }
-          >
-            LinkedIn
-          </motion.div>
-        </Reveal>
-        <Reveal>
-          <motion.div
-            className="cursor-pointer"
-            onClick={() =>
-              window.open("https://github.com/HyperBeast07", "_blank")
-            }
-          >
-            Github
-          </motion.div>
-        </Reveal>
-        <Reveal>
-          <motion.div
-            className="cursor-pointer"
-            onClick={() =>
-              window.open("https://www.instagram.com/shiyangg_/", "_blank")
-            }
-          >
-            Instagram
-          </motion.div>
-        </Reveal>
+
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{duration: 1,
+            delay: 0.25,
+          }}
+          className="cursor-pointer"
+          onClick={() =>
+            window.open(
+              "https://www.linkedin.com/in/shi-yang-ng-0237242ba/",
+              "_blank"
+            )
+          }
+        >
+          LinkedIn
+        </motion.div>
+
+        <motion.div
+          initial={{ y: 50,opacity: 0 }}
+          whileInView={{ y: 0,opacity: 1 }}
+          transition={{duration: 1,
+            delay: 0.50,
+          }}
+          className="cursor-pointer"
+          onClick={() =>
+            window.open("https://github.com/HyperBeast07", "_blank")
+          }
+        >
+          Github
+        </motion.div>
+
+        <motion.div
+          initial={{ y: 40, opacity:0  }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{duration: 1,
+            delay: 0.75,
+          }}
+          className="cursor-pointer"
+          onClick={() =>
+            window.open("https://www.instagram.com/shiyangg_/", "_blank")
+          }
+        >
+          Instagram
+        </motion.div>
       </div>
       <div>
         <motion.div
-          initial={{ opacity: 0, y: 50  }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: showArrow ? 1 : 0, y: showArrow ? 0 : 50 }}
           transition={{ duration: 1 }}
           className="flex justify-end mb-8 cursor-pointer"

@@ -22,7 +22,7 @@ const Header = () => {
       const clientHeight = document.documentElement.clientHeight;
 
       // If scrolled to the bottom (adjust threshold if needed)
-      if (scrollTop + clientHeight >= scrollHeight - 100) {
+      if (scrollTop + clientHeight >= scrollHeight - 200) {
         setShowHeader(false); // Hide header
       } else {
         setShowHeader(true); // Show header

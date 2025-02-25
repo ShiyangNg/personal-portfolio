@@ -54,7 +54,7 @@ const About = ({id}) => {
         className="sticky h-[100vh] font-montserrat text-white p-24"
       >
         <Reveal>
-          <div className="text-7xl font-bold pb-4">About Me</div>
+          <div className="text-7xl font-bold pb-10">About Me</div>
         </Reveal>
 
         {/* Subheading */}
@@ -63,7 +63,7 @@ const About = ({id}) => {
           <Reveal>
             <motion.div className="pb-2">
               I am currently 20 years old and a first year studying Electrical
-              and Electronic Engineering at Nanyang Technological University,
+              and Electronic Engineering at Nanyang Technological University (NTU),
               Singapore.
             </motion.div>
           </Reveal>
@@ -74,18 +74,18 @@ const About = ({id}) => {
             </motion.div>
           </Reveal>
           <Reveal>
-            <motion.div>
+            <motion.div className="pb-2">
               I enjoy solving complex problems and bringing ideas to life.
             </motion.div>
           </Reveal>
           <Reveal>
-            <motion.div>
+            <motion.div className="pb-2">
               Currently also learning AI during my free time. 
             </motion.div>
           </Reveal>
           <Reveal>
             <motion.div>
-              Aiming to gain early exposure in the tech industry. 
+              Hoping to gain early exposure in the tech industry. 
             </motion.div>
           </Reveal>
         </div>
