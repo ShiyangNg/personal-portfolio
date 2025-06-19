@@ -35,7 +35,7 @@ const MultiLayerParallax = () => {
         ease: 'easeInOut',
       }}
         style={{ y: textY, scale}}
-        className="pb-[670px] font-bold text-white text-7xl md:text-8xl z-10"
+        className="pb-[670px] font-bold text-sky-50 text-7xl md:text-8xl z-10"
       >
         DARE TO DREAM
       </motion.h1>

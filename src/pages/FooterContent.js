@@ -86,30 +86,30 @@ const Section3 = () => {
   };
 
   return (
-    <div className="relative text-white flex items-end justify-between">
+    <div className="relative text-white flex items-start justify-between">
       {contextHolder}
       <div>
         <Reveal>
           <div className="font-bold">MESSAGE</div>
         </Reveal>
-        <Reveal>
+
           <motion.p
-            className="cursor-pointer"
             onClick={copyToClipboard}
-            // className="opacity-0"
-            //   initial={{y:50, x: -100}}
-            //   whileInView={{ opacity: 1, y: 0, x: 0 }}
-            //   transition={{
-            //     type: "string",
-            //     stiffness: 100,
-            //     duration: 1,
-            //     ease: "easeInOut",
-            //     delay: 0.5,
-            //   }}
+            className="cursor-pointer opacity-0"
+            initial={{ y: 50, x: -100 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            whileHover={{scale: 1.1}}
+            transition={{
+              type: "string",
+              stiffness: 100,
+              duration: 1,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
           >
             {email}
           </motion.p>
-        </Reveal>
+
       </div>
       <div>
         <Reveal>
@@ -119,9 +119,9 @@ const Section3 = () => {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{duration: 1,
-            delay: 0.25,
-          }}
+          transition={{ duration: 1, delay: 0.25 }}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
           className="cursor-pointer"
           onClick={() =>
             window.open(
@@ -134,11 +134,10 @@ const Section3 = () => {
         </motion.div>
 
         <motion.div
-          initial={{ y: 50,opacity: 0 }}
-          whileInView={{ y: 0,opacity: 1 }}
-          transition={{duration: 1,
-            delay: 0.50,
-          }}
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          whileHover={{ scale: 1.2 }}
+          transition={{ duration: 1, delay: 0.5 }}
           className="cursor-pointer"
           onClick={() =>
             window.open("https://github.com/HyperBeast07", "_blank")
@@ -148,11 +147,10 @@ const Section3 = () => {
         </motion.div>
 
         <motion.div
-          initial={{ y: 40, opacity:0  }}
+          initial={{ y: 45, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{duration: 1,
-            delay: 0.75,
-          }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 1, delay: 0.75 }}
           className="cursor-pointer"
           onClick={() =>
             window.open("https://www.instagram.com/shiyangg_/", "_blank")

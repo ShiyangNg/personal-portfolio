@@ -6,7 +6,7 @@ import Projects from "./Projects";
 import AboutImage from "../assets/images/photo-1633547136812-6c4baeebbeda.avif";
 import AboutCard from "../components/AboutCard";
 import { Card } from "antd";
-import Myself from "../assets/images/DSC_2135.jpg"
+import Myself from "../assets/images/DSC_2135.jpg";
 
 const About = ({ id }) => {
   const ref = useRef(null);
@@ -62,7 +62,7 @@ const About = ({ id }) => {
         </Reveal>
         {/* Subheading */}
         <div className="flex">
-          <Card
+          {/* <Card
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.75 }}
@@ -76,35 +76,47 @@ const About = ({ id }) => {
             }
           >
             <Meta title="Shi Yang Ng" description="Year 2 EEE @ NTU" />
-          </Card>
+          </Card> */}
 
-          <div className="text-xl ml-8">
+          <div className="text-lg mx-auto border px-8 py-4 rounded-lg">
             <Reveal>
-              <motion.div className="pb-2">
-                I am currently 20 years old and a first year studying Electrical
-                and Electronic Engineering at Nanyang Technological University
-                (NTU), Singapore.
+              <motion.div className="pb-4">
+                Hi, I'm <b>Shi Yang.</b>
               </motion.div>
             </Reveal>
             <Reveal>
-              <motion.div className="pb-2">
-                I am dedicated to creating user-friendly and visually appealing
-                applications.
+              <motion.div className="pb-4">
+                I am currently 21 years old and studying Electrical and
+                Electronic Engineering with a second major in Data Analytics at Nanyang Technological University, Singapore.
+              </motion.div>
+            </Reveal>
+            <div>
+              <Reveal>
+              <motion.div className="w-full pb-4 flex ml-auto">
+                Beyond academics, I enjoy designing and building applications
+                that blend functionality with aesthetic appeal.
+              </motion.div>
+            </Reveal>
+            </div>
+            
+            <Reveal>
+              <motion.div className="pb-4">
+                I’ve always been fascinated by the process of turning ideas into
+                real, working solutions—there’s something deeply rewarding about
+                solving problems and bringing concepts to life on screen.
               </motion.div>
             </Reveal>
             <Reveal>
-              <motion.div className="pb-2">
-                I enjoy solving complex problems and bringing ideas to life.
-              </motion.div>
-            </Reveal>
-            <Reveal>
-              <motion.div className="pb-2">
-                Currently also learning AI during my free time.
+              <motion.div className="pb-4">
+                Lately, I’ve been spending much of my free time exploring the
+                world of artificial intelligence.
               </motion.div>
             </Reveal>
             <Reveal>
               <motion.div>
-                Hoping to gain early exposure in the tech industry.
+                It’s a field that excites me with its vast possibilities, and
+                I’m always eager to deepen my understanding and build meaningful
+                skills in this rapidly evolving space.
               </motion.div>
             </Reveal>
           </div>

@@ -24,16 +24,21 @@ const Skills = () => {
       className="p-24 h-[100vh] text-white"
     >
       <Reveal>
-        <h1 className="text-7xl font-bold pb-4  ">Skills</h1>
+        <h1 className="text-7xl font-bold pb-4">Skills</h1>
       </Reveal>
 
       <div className="flex flex-wrap text-xl space-x-4">
         <Reveal>
           <motion.div whileHover={{}} className="border py-2 px-4 rounded-lg">
-            ReactJS
+            React
           </motion.div>
         </Reveal>
-
+        <Reveal>
+          <div className="border py-2 px-4 mb-2 rounded-lg">NestJS</div>
+        </Reveal>
+        <Reveal>
+          <div className="border py-2 px-4 mb-2 rounded-lg">PostgreSQL</div>
+        </Reveal>
         <Reveal>
           <div className="border py-2 px-4 mb-2 rounded-lg">C</div>
         </Reveal>
