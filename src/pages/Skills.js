@@ -8,7 +8,7 @@ const Skills = () => {
     target: ref,
     offset: ["start start", "end end"],
   });
-  const isSticky = useTransform(scrollYProgress, [0.8, 1], [false, true]); 
+  const isSticky = useTransform(scrollYProgress, [0.8, 1], [false, true]);
   const scale = useTransform(scrollYProgress, [0, 0.525], [0.7, 1]);
   const rotate = useTransform(scrollYProgress, [0, 1], [-5, 0]);
   return (
@@ -20,7 +20,6 @@ const Skills = () => {
         backgroundImage: `url(https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
         position: isSticky ? "sticky" : "relative",
         top: isSticky ? "0px" : "auto",
-  
       }}
       className="p-24 h-[100vh] text-white"
     >
@@ -28,12 +27,9 @@ const Skills = () => {
         <h1 className="text-7xl font-bold pb-4  ">Skills</h1>
       </Reveal>
 
-      <div className="flex flex-col text-xl">
+      <div className="flex flex-wrap text-xl space-x-4">
         <Reveal>
-          <motion.div
-            whileHover={{ backgroundColor: "#f9a8d4" }}
-            className="border py-2 px-4 mb-2 rounded-lg "
-          >
+          <motion.div whileHover={{}} className="border py-2 px-4 rounded-lg">
             ReactJS
           </motion.div>
         </Reveal>

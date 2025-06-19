@@ -8,7 +8,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 export default function FooterContent() {
   return (
     // #4E4E5A
-    <div className="font-montserrat bg-[#4E4E5A] py-6 px-10 h-full w-full flex flex-col justify-between">
+    <div className="font-montserrat bg-black py-6 px-10 h-full w-full flex flex-col justify-between">
       <Section1 />
       <Section2 />
       <Section3 />

@@ -3,10 +3,12 @@ import { Reveal } from "../components/ultilities/Reveal";
 import { motion, useTransform, useScroll, delay } from "framer-motion";
 import Skills from "./Skills";
 import Projects from "./Projects";
-import AboutImage from '../assets/images/photo-1633547136812-6c4baeebbeda.avif'
+import AboutImage from "../assets/images/photo-1633547136812-6c4baeebbeda.avif";
 import AboutCard from "../components/AboutCard";
+import { Card } from "antd";
+import Myself from "../assets/images/DSC_2135.jpg"
 
-const About = ({id}) => {
+const About = ({ id }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -22,7 +24,7 @@ const About = ({id}) => {
     const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
     return (
       <motion.div
-      id= {id}
+        id={id}
         scrollYProgress={scrollYProgress}
         style={{
           scale,
@@ -37,6 +39,8 @@ const About = ({id}) => {
   };
 
   const Section2 = ({ id }) => {
+    const { Meta } = Card;
+
     const scale = useTransform(scrollYProgress, [0, 0.25], [0.8, 1]);
     const rotate = useTransform(scrollYProgress, [0, 0.25], [-10, 0]);
     return (
@@ -49,45 +53,61 @@ const About = ({id}) => {
           scale,
           rotate,
 
-          backgroundImage: `url(${AboutImage})`,
+          backgroundImage: `url(https://images.unsplash.com/photo-1748625131782-c091818a8be0?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
         }}
-        className="sticky h-[100vh] font-montserrat text-white p-24"
+        className="bg-black sticky h-[100vh] font-montserrat text-white p-24"
       >
         <Reveal>
           <div className="text-7xl font-bold pb-10">About Me</div>
         </Reveal>
-
         {/* Subheading */}
+        <div className="flex">
+          <Card
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.75 }}
+            hoverable
+            style={{ width: 240 }}
+            cover={
+              <img
+                alt="example"
+                src={Myself}
+              />
+            }
+          >
+            <Meta title="Shi Yang Ng" description="Year 2 EEE @ NTU" />
+          </Card>
 
-        <div className="text-xl">
-          <Reveal>
-            <motion.div className="pb-2">
-              I am currently 20 years old and a first year studying Electrical
-              and Electronic Engineering at Nanyang Technological University (NTU),
-              Singapore.
-            </motion.div>
-          </Reveal>
-          <Reveal>
-            <motion.div className="pb-2">
-              I am dedicated to creating user-friendly and visually appealing
-              applications.
-            </motion.div>
-          </Reveal>
-          <Reveal>
-            <motion.div className="pb-2">
-              I enjoy solving complex problems and bringing ideas to life.
-            </motion.div>
-          </Reveal>
-          <Reveal>
-            <motion.div className="pb-2">
-              Currently also learning AI during my free time. 
-            </motion.div>
-          </Reveal>
-          <Reveal>
-            <motion.div>
-              Hoping to gain early exposure in the tech industry. 
-            </motion.div>
-          </Reveal>
+          <div className="text-xl ml-8">
+            <Reveal>
+              <motion.div className="pb-2">
+                I am currently 20 years old and a first year studying Electrical
+                and Electronic Engineering at Nanyang Technological University
+                (NTU), Singapore.
+              </motion.div>
+            </Reveal>
+            <Reveal>
+              <motion.div className="pb-2">
+                I am dedicated to creating user-friendly and visually appealing
+                applications.
+              </motion.div>
+            </Reveal>
+            <Reveal>
+              <motion.div className="pb-2">
+                I enjoy solving complex problems and bringing ideas to life.
+              </motion.div>
+            </Reveal>
+            <Reveal>
+              <motion.div className="pb-2">
+                Currently also learning AI during my free time.
+              </motion.div>
+            </Reveal>
+            <Reveal>
+              <motion.div>
+                Hoping to gain early exposure in the tech industry.
+              </motion.div>
+            </Reveal>
+          </div>
         </div>
       </motion.div>
     );
@@ -108,9 +128,9 @@ const About = ({id}) => {
   return (
     <main className="relative h-[700vh]">
       <Section1 />
-      <Section2 id="about"/>
-      <Skills/>
-      <Projects/>
+      <Section2 id="about" />
+      <Skills />
+      <Projects />
     </main>
   );
 };

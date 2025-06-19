@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import { Reveal } from "../components/ultilities/Reveal";
 import About from "./About";
 const Header = () => {
@@ -167,6 +167,19 @@ const Header = () => {
       >
         <Reveal>
           <FaGithub size={24} className />
+        </Reveal>
+      </motion.a>
+       <motion.a
+        href="https://instagram.com/shiyangg_"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="pr-2"
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        <Reveal>
+          <FaInstagram size={24} className />
         </Reveal>
       </motion.a>
       <div className="ml-auto">

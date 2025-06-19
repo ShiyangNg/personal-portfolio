@@ -1,13 +1,10 @@
 import Header from "./pages/Header";
 import Hero from "./pages/Hero";
 import ScrollProgressBar from "./components/ScrollProgressBar";
-import { Reveal } from "./components/ultilities/Reveal";
 import About from "./pages/About";
 import MultiLayerParallax from "./components/MultiLayerParallax";
-import Skills from "./pages/Skills";
-import Projects from "./pages/Projects";
 import Lenis from "lenis";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Footer from "./pages/Footer";
 
 function App() {

@@ -1,4 +1,4 @@
-import { motion, useTransform, useScroll, transform } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { Reveal } from "./ultilities/Reveal";
 import EcoEats from "../assets/images/EcoEats.png";
@@ -12,7 +12,7 @@ const HorizontalScrollCard = () => {
     offset: ["start start", "end end"],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  // const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   return (
     <motion.div scrollYProgress={scrollYProgress} className="relative">
       <HorizontalScrollCarousel />
