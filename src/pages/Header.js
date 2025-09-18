@@ -48,50 +48,52 @@ const Header = () => {
   const animateScroll = (targetPosition, duration = 1500) => {
     const start = window.scrollY;
     const startTime = performance.now();
-  
+
     const animate = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1); // Normalize progress (0 to 1)
-      
+
       // Smooth scrolling using an ease-out effect
       const easeOut = 1 - Math.pow(1 - progress, 3); // Cubic easing function
-  
+
       window.scrollTo(0, start + (targetPosition - start) * easeOut);
-  
+
       if (progress < 1) {
         requestAnimationFrame(animate);
       }
     };
-  
+
     requestAnimationFrame(animate);
   };
-  
+
   const scrollToHeight = (height) => {
     animateScroll(height);
   };
-  
+
   const scrollToBottom = () => {
     animateScroll(document.documentElement.scrollHeight);
   };
-  
+
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "../assets/Resume_NgShiYang.pdf";
+    link.href = "/assets/Resume_NgShiYang.pdf";
     link.download = "Resume_NgShiYang.pdf";
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <motion.div
       initial={{ opacity: 1, y: 0 }}
-      animate={{ opacity: showHeader ? 1 : 0, y:showHeader ? 0 : -10 }}
+      animate={{ opacity: showHeader ? 1 : 0, y: showHeader ? 0 : -10 }}
       duration={1}
       className={`py-4 px-8 fixed top-0 w-full flex text-white items-center font-montserrat transition-all duration-300 z-50 ${
         navbar ? "bg-black/30 backdrop-blur-xs" : "bg-black"
       }`}
     >
       <motion.button
-        onClick={() => scrollToHeight(window.innerHeight * 2.5 -140)}
+        onClick={() => scrollToHeight(window.innerHeight * 2.5 - 140)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="pr-4"
@@ -100,7 +102,7 @@ const Header = () => {
         <Reveal>About</Reveal>
       </motion.button>
       <motion.button
-        onClick={() => scrollToHeight(window.innerHeight * 3.5 -140)}
+        onClick={() => scrollToHeight(window.innerHeight * 3.5 - 140)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="pr-4"
@@ -169,7 +171,7 @@ const Header = () => {
           <FaGithub size={24} className />
         </Reveal>
       </motion.a>
-       <motion.a
+      <motion.a
         href="https://instagram.com/shiyangg_"
         target="_blank"
         rel="noopener noreferrer"
