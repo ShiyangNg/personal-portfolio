@@ -1,20 +1,23 @@
 {
   "files": {
-    "main.css": "/personal-portfolio/static/css/main.0bd35165.css",
-    "main.js": "/personal-portfolio/static/js/main.f01b6e86.js",
-    "static/media/DSC_2135.jpg": "/personal-portfolio/static/media/DSC_2135.5fa2a8ef0b58f2bc6834.jpg",
+    "main.css": "/personal-portfolio/static/css/main.311cda67.css",
+    "main.js": "/personal-portfolio/static/js/main.6ca5e35b.js",
     "static/media/image-bottom.png": "/personal-portfolio/static/media/image-bottom.4f35e455198bfe6291f1.png",
     "static/media/EcoEats.png": "/personal-portfolio/static/media/EcoEats.cb3e5d93582243c3a899.png",
     "static/media/image-full.jpg": "/personal-portfolio/static/media/image-full.517b29c99265f5c17f6e.jpg",
+    "static/media/Section1Bg.avif": "/personal-portfolio/static/media/Section1Bg.62e259035104e30e6c77.avif",
+    "static/media/NexperiaIntern.jpg": "/personal-portfolio/static/media/NexperiaIntern.057075ed5844d8a68571.jpg",
+    "static/media/AboutBackground.jpg": "/personal-portfolio/static/media/AboutBackground.5bb4103f1d31f8141067.jpg",
     "static/media/RecipeBook.png": "/personal-portfolio/static/media/RecipeBook.97b1a313fa049b57921e.png",
     "static/media/WeatherAppDarkMode.png": "/personal-portfolio/static/media/WeatherAppDarkMode.df6e838fa9780ded8fe4.png",
     "static/media/photo-1633547136812-6c4baeebbeda.avif": "/personal-portfolio/static/media/photo-1633547136812-6c4baeebbeda.d258590487f637c1e251.avif",
+    "static/media/Me.jpg": "/personal-portfolio/static/media/Me.25188e25c11371fbdd62.jpg",
     "index.html": "/personal-portfolio/index.html",
-    "main.0bd35165.css.map": "/personal-portfolio/static/css/main.0bd35165.css.map",
-    "main.f01b6e86.js.map": "/personal-portfolio/static/js/main.f01b6e86.js.map"
+    "main.311cda67.css.map": "/personal-portfolio/static/css/main.311cda67.css.map",
+    "main.6ca5e35b.js.map": "/personal-portfolio/static/js/main.6ca5e35b.js.map"
   },
   "entrypoints": [
-    "static/css/main.0bd35165.css",
-    "static/js/main.f01b6e86.js"
+    "static/css/main.311cda67.css",
+    "static/js/main.6ca5e35b.js"
   ]
 }
