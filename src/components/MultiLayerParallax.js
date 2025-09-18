@@ -12,7 +12,7 @@ const MultiLayerParallax = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -10]);
-  
+  const rotateText = useTransform(scrollYProgress, [0, 1], [0, -70]);
   return (
     <div
       ref={ref}
@@ -34,8 +34,9 @@ const MultiLayerParallax = () => {
         duration: 1,
         ease: 'easeInOut',
       }}
-        style={{ y: textY, scale}}
-        className="pb-[670px] font-bold text-[##77b3bd] text-7xl md:text-8xl z-10"
+        style={{ y: textY, scale, rotate: rotateText }}
+
+        className="pb-[670px] font-bold text-7xl md:text-8xl z-10"
       >
         DARE TO DREAM
       </motion.h1>

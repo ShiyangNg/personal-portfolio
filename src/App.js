@@ -6,6 +6,7 @@ import MultiLayerParallax from "./components/MultiLayerParallax";
 import Lenis from "lenis";
 import { useEffect } from "react";
 import Footer from "./pages/Footer";
+import "./App.css";
 
 function App() {
   useEffect(() => {

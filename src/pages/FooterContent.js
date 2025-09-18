@@ -105,27 +105,31 @@ const Section3 = () => {
           transition={{
             type: "spring",
             stiffness: 80,
-            duration: 0.8,
+            duration: 1,
             ease: "easeInOut",
             delay: 0.5,
           }}
         >
-          <div className="flex flex-col gap-2">
-            <button
+          <div className="flex flex-col gap-1">
+            <motion.button
               onClick={() => handleCopy(email)}
-              className="text-left cursor-pointer bg-transparent p-0 text-white/90 hover:text-white text-sm"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="text-left cursor-pointer bg-transparent p-0 text-white/70 hover:text-white text-sm"
               aria-label={`Copy ${email}`}
             >
               {email}
-            </button>
+            </motion.button>
 
-            <button
+            <motion.button
               onClick={() => handleCopy(email2)}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
               className="text-left cursor-pointer bg-transparent p-0 text-white/70 hover:text-white text-sm"
               aria-label={`Copy ${email2}`}
             >
               {email2}
-            </button>
+            </motion.button>
           </div>
         </motion.div>
       </div>
@@ -136,9 +140,14 @@ const Section3 = () => {
 
         <motion.div
           initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.25 }}
-          whileHover={{ scale: 1.2 }}
+          whileInView={{ y: 0, opacity: 0.7 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.25,
+            type: "spring",
+            stiffness: 300,
+          }}
+          whileHover={{ scale: 1.05, opacity: 1 }}
           whileTap={{ scale: 0.9 }}
           className="cursor-pointer"
           onClick={() =>
@@ -153,9 +162,14 @@ const Section3 = () => {
 
         <motion.div
           initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          whileHover={{ scale: 1.2 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          whileInView={{ y: 0, opacity: 0.7 }}
+          whileHover={{ scale: 1.05, opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.5,
+            type: "spring",
+            stiffness: 300,
+          }}
           className="cursor-pointer"
           onClick={() => window.open("https://github.com/shiyangng", "_blank")}
         >
@@ -164,9 +178,14 @@ const Section3 = () => {
 
         <motion.div
           initial={{ y: 45, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 1, delay: 0.75 }}
+          whileInView={{ y: 0, opacity: 0.7 }}
+          whileHover={{ scale: 1.05, opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.75,
+            type: "spring",
+            stiffness: 300,
+          }}
           className="cursor-pointer"
           onClick={() =>
             window.open("https://www.instagram.com/shiyangg_/", "_blank")
@@ -214,7 +233,7 @@ const Nav = () => {
     <div className="text-white flex shrink-0 gap-20">
       <div className="flex flex-col gap-2">
         <p>About</p>
-        <p>Skills</p>
+        <p>Experience</p>
         <p>Projects</p>
         <p>Contact</p>
       </div>

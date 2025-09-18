@@ -66,7 +66,7 @@ const Card = ({ card }) => {
           </p>
         </div>
       </motion.div>
-      <div className="pt-4 flex items-center justify-center place-content-center">
+      <div className="text-center pt-4 flex items-center justify-center place-content-center">
         <Reveal>{card.description}</Reveal>
       </div>
     </div>
@@ -85,7 +85,7 @@ const cards = [
   {
     url: WeatherApp,
     title: "Weather Forecast App",
-    description: "Vanilla JavaScript, Firebase, TailwindCSS",
+    description: "A simple and clean weather application that provides current weather conditions for any city. Built with HTML, CSS, and JavaScript, using the AccuWeather API.",
     id: 2,
   },
   {

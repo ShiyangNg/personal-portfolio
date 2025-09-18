@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Reveal } from "../components/ultilities/Reveal";
 import { motion, useTransform, useScroll, delay } from "framer-motion";
-import Skills from "./Skills";
+import Experience from "./Experience";
 import Projects from "./Projects";
 import AboutImage from "../assets/images/AboutBackground.jpg";
 import AboutCard from "../components/AboutCard";
-import { Card } from "antd";
+import Section1Bg from "../assets/images/Section1Bg.avif";
 import Myself from "../assets/images/Me.jpg";
 
 const About = ({ id }) => {
@@ -35,7 +35,7 @@ const About = ({ id }) => {
         style={{
           scale,
           rotate,
-          backgroundImage: `url(https://images.unsplash.com/photo-1472289065668-ce650ac443d2?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
+          backgroundImage: `url(${Section1Bg})`,
         }}
         className="sticky top-0 h-screen w-screen text-white flex items-center justify-center font-montserrat text-8xl font-bold "
       >
@@ -66,7 +66,7 @@ const About = ({ id }) => {
 
         {/* Profile card */}
 
-        <Reveal className=" mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+        <Reveal className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           <div className="col-span-1">
             <motion.div
               initial={{ y: 24, opacity: 0 }}
@@ -74,7 +74,7 @@ const About = ({ id }) => {
               transition={{ duration: 0.7 }}
               className="bg-white/5 border border-white/8 rounded-2xl p-6 backdrop-blur-sm shadow-lg"
             >
-              <div className="flex flex-col items-center text-center">
+              <div className="flex flex-col ">
                 <div className="w-40 h-40 rounded-full overflow-hidden ring-1 ring-white/10">
                   <img
                     src={Myself}
@@ -82,73 +82,107 @@ const About = ({ id }) => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="mt-4 text-2xl font-semibold">Shi Yang Ng</h3>
-                <p className="mt-1 text-sm text-gray-200 mb-2">
+                <motion.h3
+                  initial={{ y: 12, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  className="mt-4 text-2xl font-semibold "
+                >
+                  Shi Yang Ng
+                </motion.h3>
+                <p className="font-bold mt-1 text-md mb-2">
                   Year 2 EEE • 2nd Major in Data Analytics • NTU Singapore
                 </p>
-                <Reveal>
-                  <motion.div className="w-full pb-4">
-                    Beyond my core focus, I’m also exploring AI and software
-                    development, which I see as powerful tools to complement my
-                    engineering background.
-                  </motion.div>
-                </Reveal>
-                <Reveal>
-                  <motion.div className="pb-4">
-                    I’ve always been fascinated by the process of turning ideas
-                    into real, working solutions—there’s something deeply
-                    rewarding about solving problems and bringing concepts to
-                    life on screen.
-                  </motion.div>
-                </Reveal>
-                <Reveal>
-                  <motion.div className="pb-4">
-                    Lately, I’ve been spending much of my free time exploring
-                    the world of artificial intelligence.
-                  </motion.div>
-                </Reveal>
-                <Reveal>
-                  <motion.div>
-                    It’s a field that excites me with its vast possibilities,
-                    and I’m always eager to deepen my understanding and build
-                    meaningful skills in this rapidly evolving space.
-                  </motion.div>
-                </Reveal>
-                <div className="mt-4 flex gap-3 flex-wrap justify-center">
-                  <a
-                    href="#projects"
-                    className="px-4 py-2 rounded-full bg-indigo-600/90 hover:bg-indigo-500 text-sm font-medium"
-                  >
-                    View projects
-                  </a>
-                  <a
-                    href="mailto:shi@example.com"
-                    className="px-4 py-2 rounded-full border border-white/10 text-sm hover:bg-white/3"
-                  >
-                    Contact
-                  </a>
-                </div>
 
-                <div className="mt-6 w-full text-left">
-                  <h4 className="text-sm text-gray-300 uppercase tracking-wider mb-2">
-                    Tech highlights
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      "React",
-                      "Node",
-                      "Python",
-                      "PyTorch",
-                      "SQL",
-                      "Tailwind",
-                    ].map((t) => (
-                      <span
-                        key={t}
-                        className="border text-xs px-3 py-1 rounded-full bg-white/6 text-gray-100"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                {/* Contents */}
+                <div className="">
+                  <Reveal>
+                    <motion.div className="pb-4">
+                      I’ve always been fascinated by the process of turning
+                      ideas into real, working solutions — there’s something
+                      deeply rewarding about solving problems and bringing
+                      concepts to life on screen.
+                    </motion.div>
+                  </Reveal>
+                  <Reveal>
+                    <motion.div className="pb-4">
+                      Beyond my core focus, I’m also exploring AI and software
+                      development, which I see as powerful tools to complement
+                      my engineering background.
+                    </motion.div>
+                  </Reveal>
+
+                  {/* <Reveal>
+                    <motion.div className="pb-4">
+                      It’s a field that excites me with its vast possibilities,
+                      and I’m always eager to deepen my understanding and build
+                      meaningful skills in this rapidly evolving space.
+                    </motion.div>
+                  </Reveal> */}
+                </div>
+                <div className="">
+                  <div className="mt-6 w-full text-left">
+                    <Reveal>
+                      <h4 className="text-sm text-gray-300 uppercase tracking-wider mb-2">
+                        Tech highlights
+                      </h4>
+                    </Reveal>
+
+                    <Reveal>
+                      <div className="flex flex-wrap gap-2">
+                        {["React", "JavaScript", "Python", "NestJS", "C"].map(
+                          (t) => (
+                            <span
+                              key={t}
+                              className="border text-xs px-3 py-1 rounded-full bg-white/6 text-gray-100"
+                            >
+                              {t}
+                            </span>
+                          )
+                        )}
+                      </div>
+                    </Reveal>
+                  </div>
+                  <div className="mt-6 w-full text-left">
+                    <Reveal>
+                      <h4 className="text-sm text-gray-300 uppercase tracking-wider mb-2">
+                        Interests
+                      </h4>
+                    </Reveal>
+
+                    <Reveal>
+                      <div className="flex flex-wrap gap-2">
+                        {["Hackathons", "AI", "Calisthenics", "Movies"].map(
+                          (t) => (
+                            <span
+                              key={t}
+                              className="border text-xs px-3 py-1 rounded-full bg-white/6 text-gray-100"
+                            >
+                              {t}
+                            </span>
+                          )
+                        )}
+                      </div>
+                    </Reveal>
+                  </div>
+                  <div className="mt-6 w-full text-left">
+                    <Reveal>
+                      <h4 className="text-sm text-gray-300 uppercase tracking-wider mb-2">
+                        Languages
+                      </h4>
+                    </Reveal>
+
+                    <Reveal>
+                      <div className="flex flex-wrap gap-2">
+                        {["English", "Chinese", "Malay"].map((t) => (
+                          <span
+                            key={t}
+                            className="border text-xs px-3 py-1 rounded-full bg-white/6 text-gray-100"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </Reveal>
                   </div>
                 </div>
               </div>
@@ -175,7 +209,7 @@ const About = ({ id }) => {
     <main className="relative h-[700vh]">
       <Section1 />
       <Section2 id="about" />
-      <Skills />
+      <Experience />
       <Projects />
     </main>
   );

@@ -106,7 +106,7 @@ const Header = () => {
         className="pr-4"
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <Reveal>Skills</Reveal>
+        <Reveal>Experience</Reveal>
       </motion.button>
       <motion.button
         onClick={() => scrollToHeight(window.innerHeight * 4.5 - 140)}
