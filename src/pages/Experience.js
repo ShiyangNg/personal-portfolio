@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Reveal } from "../components/ultilities/Reveal";
 import { motion, useTransform, useScroll } from "framer-motion";
-
+import NexperiaIntern from "../assets/images/NexperiaIntern.jpg";
 const Experience = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -24,51 +24,35 @@ const Experience = () => {
       className="p-24 h-[100vh] text-white"
     >
       <Reveal>
-        <h1 className="text-7xl font-bold pb-4">Experience</h1>
+        <h1 className="text-7xl font-bold pb-4 mb-4">Experience</h1>
       </Reveal>
-
-      <div className="flex flex-wrap text-xl space-x-4">
-        <Reveal>
-          <motion.div whileHover={{}} className="border py-2 px-4 rounded-lg">
-            React
-          </motion.div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">NestJS</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">PostgreSQL</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">C</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">Python</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">JavaScript</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">Tailwind</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">CSS</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">HTML</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">Firebase</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">MongoDB</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">Express.js</div>
-        </Reveal>
-        <Reveal>
-          <div className="border py-2 px-4 mb-2 rounded-lg">Motion</div>
-        </Reveal>
+      <Reveal>
+        <div className="flex font-bold flex-wrap text-3xl space-x-4 mb-4">
+          Internship
+        </div>
+      </Reveal>
+      {/* <img className="w-72" src={NexperiaIntern} alt="" /> */}
+      <div className="space-y-1">
+        <div className="text-xl flex justify-between font-bold">
+          <div>Nexperia, Dongguan, Guangdong China</div>
+          <div>May - July 2025</div>
+        </div>
+        <div className="text-xl font-bold">Software Developer</div>
+        <div className="space-y-1">
+          <li>
+            Developed a Secure File Management System​ – a full-stack solution
+            with ​NestJS, TypeORM, and React, enabling secure file uploads,
+            version control, and atomic rollbacks.
+          </li>
+          <li>
+            Enhanced User Experience​ – Implemented ​dynamic EN/CN localization​
+            and an intuitive UI with ​Ant Design & TailwindCSS
+          </li>
+          <li>
+            Tech Stack:​ NestJS · TypeScript · TypeORM · PostgreSQL · React ·
+            TailwindCSS · Ant Design · SMB Protocol · React-i18next
+          </li>
+        </div>
       </div>
     </motion.div>
   );

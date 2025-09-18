@@ -87,7 +87,7 @@ const Header = () => {
       animate={{ opacity: showHeader ? 1 : 0, y:showHeader ? 0 : -10 }}
       duration={1}
       className={`py-4 px-8 fixed top-0 w-full flex text-white items-center font-montserrat transition-all duration-300 z-50 ${
-        navbar ? "bg-black/30 backdrop-blur-lg" : "bg-black"
+        navbar ? "bg-black/30 backdrop-blur-xs" : "bg-black"
       }`}
     >
       <motion.button
