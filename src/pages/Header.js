@@ -157,7 +157,7 @@ const Header = () => {
         </Reveal>
       </motion.a>
       <motion.a
-        href="https://www.github.com/HyperBeast07"
+        href="https://www.github.com/shiyangng"
         target="_blank"
         rel="noopener noreferrer"
         className="pr-2"

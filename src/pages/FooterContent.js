@@ -42,8 +42,11 @@ const Section2 = () => {
 const Section3 = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const email = "ngshiyang@gmail.com";
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(email).then(() => {
+  const email2 = "ngsh0069@e.ntu.edu.sg";
+
+  // copy a specific address and show a single success message
+  const handleCopy = (addr) => {
+    navigator.clipboard.writeText(addr).then(() => {
       messageApi.success("Email copied to clipboard!");
     });
   };
@@ -93,23 +96,38 @@ const Section3 = () => {
           <div className="font-bold">MESSAGE</div>
         </Reveal>
 
-          <motion.p
-            onClick={copyToClipboard}
-            className="cursor-pointer opacity-0"
-            initial={{ y: 50, x: -100 }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
-            whileHover={{scale: 1.1}}
-            transition={{
-              type: "string",
-              stiffness: 100,
-              duration: 1,
-              ease: "easeInOut",
-              delay: 0.5,
-            }}
-          >
-            {email}
-          </motion.p>
+        {/* parent animates into view; emails are stacked in separate rows and each copies individually */}
+        <motion.div
+          className="mt-2"
+          initial={{ y: 50, x: -100, opacity: 0 }}
+          whileInView={{ opacity: 1, y: 0, x: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{
+            type: "spring",
+            stiffness: 80,
+            duration: 0.8,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        >
+          <div className="flex flex-col gap-2">
+            <button
+              onClick={() => handleCopy(email)}
+              className="text-left cursor-pointer bg-transparent p-0 text-white/90 hover:text-white text-sm"
+              aria-label={`Copy ${email}`}
+            >
+              {email}
+            </button>
 
+            <button
+              onClick={() => handleCopy(email2)}
+              className="text-left cursor-pointer bg-transparent p-0 text-white/70 hover:text-white text-sm"
+              aria-label={`Copy ${email2}`}
+            >
+              {email2}
+            </button>
+          </div>
+        </motion.div>
       </div>
       <div>
         <Reveal>
@@ -139,9 +157,7 @@ const Section3 = () => {
           whileHover={{ scale: 1.2 }}
           transition={{ duration: 1, delay: 0.5 }}
           className="cursor-pointer"
-          onClick={() =>
-            window.open("https://github.com/HyperBeast07", "_blank")
-          }
+          onClick={() => window.open("https://github.com/shiyangng", "_blank")}
         >
           Github
         </motion.div>
