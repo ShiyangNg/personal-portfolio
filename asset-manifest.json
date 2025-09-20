@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/personal-portfolio/static/css/main.311cda67.css",
-    "main.js": "/personal-portfolio/static/js/main.667fbaf5.js",
+    "main.css": "/personal-portfolio/static/css/main.d3223275.css",
+    "main.js": "/personal-portfolio/static/js/main.8ed05b3c.js",
     "static/media/image-bottom.png": "/personal-portfolio/static/media/image-bottom.4f35e455198bfe6291f1.png",
     "static/media/EcoEats.png": "/personal-portfolio/static/media/EcoEats.cb3e5d93582243c3a899.png",
     "static/media/image-full.jpg": "/personal-portfolio/static/media/image-full.517b29c99265f5c17f6e.jpg",
@@ -13,11 +13,11 @@
     "static/media/photo-1633547136812-6c4baeebbeda.avif": "/personal-portfolio/static/media/photo-1633547136812-6c4baeebbeda.d258590487f637c1e251.avif",
     "static/media/Me.jpg": "/personal-portfolio/static/media/Me.25188e25c11371fbdd62.jpg",
     "index.html": "/personal-portfolio/index.html",
-    "main.311cda67.css.map": "/personal-portfolio/static/css/main.311cda67.css.map",
-    "main.667fbaf5.js.map": "/personal-portfolio/static/js/main.667fbaf5.js.map"
+    "main.d3223275.css.map": "/personal-portfolio/static/css/main.d3223275.css.map",
+    "main.8ed05b3c.js.map": "/personal-portfolio/static/js/main.8ed05b3c.js.map"
   },
   "entrypoints": [
-    "static/css/main.311cda67.css",
-    "static/js/main.667fbaf5.js"
+    "static/css/main.d3223275.css",
+    "static/js/main.8ed05b3c.js"
   ]
 }
