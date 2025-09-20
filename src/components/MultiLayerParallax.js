@@ -34,9 +34,17 @@ const MultiLayerParallax = () => {
         duration: 1,
         ease: 'easeInOut',
       }}
-        style={{ y: textY, scale, rotate: rotateText }}
+      
+        style={{ y: textY, scale,rotate: rotateText, textShadow: `
+            1px 1px 1px #000,
+            2px 2px 1px #111,
+            3px 3px 1px #111,
+            4px 4px 1px #222,
+            5px 5px 1px #222,
+            6px 6px 10px rgba(0,0,0,0.5)
+          `, }}
 
-        className="pb-[670px] font-bold text-7xl md:text-8xl z-10"
+        className="pb-[670px] font-bold text-sky-50 text-7xl md:text-8xl z-10"
       >
         DARE TO DREAM
       </motion.h1>
