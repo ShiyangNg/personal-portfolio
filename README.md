@@ -10,6 +10,14 @@ This repository contains the source code for my personal portfolio website — a
 - **Contact** – A dedicated form to get in touch with me directly  
 - **Animations & UI** – Sleek, modern design with **buttery-smooth, eye-catching animations** that make the site feel alive ✨  
 
+## Current ongoing plans
+- Optimise for mobile view
+- Finish up the experience page
+- Add more 3D animations
+- An intro loading preview
+- Reimplement some UI colour choices
+- Deploy other projects and link them through here 
+
 ---
 ## 🛠️ Built With
 - **HTML5 / CSS3 / JavaScript**  
