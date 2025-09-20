@@ -16,6 +16,7 @@ This repository contains the source code for my personal portfolio website — a
 - Add more 3D animations
 - An intro loading preview
 - Reimplement some UI colour choices
+- Deploy other projects and link them through here 
 
 ---
 ## 🛠️ Built With
