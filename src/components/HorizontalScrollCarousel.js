@@ -48,20 +48,22 @@ const Card = ({ card }) => {
   return (
     <div>
       <motion.div
+        onClick={() => window.open(card.url, "_blank", "noopener,noreferrer")}
+        whileTap={{ scale: 0.95 }}
         whileHover={{ scale: 1.05 }}
         key={card.id}
-        className="group relative h-[500px] w-[500px] overflow-hidden bg-neutral-200"
+        className="cursor-pointer group relative h-[500px] w-[500px] overflow-hidden bg-neutral-200"
       >
         <div
           style={{
-            backgroundImage: `url(${card.url})`,
+            backgroundImage: `url(${card.image})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
           className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
         ></div>
         <div className="absolute inset-0 z-10 grid place-content-center">
-          <p className="cursor-pointer bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-xs">
+          <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-xs">
             <Reveal>{card.title}</Reveal>
           </p>
         </div>
@@ -77,21 +79,25 @@ export default HorizontalScrollCard;
 
 const cards = [
   {
-    url: EcoEats,
+    image: EcoEats,
     title: "EcoEats",
-    description: "React, Firebase, TailwindCSS",
+    description: "A full-stack web app that promotes sustainable eating habits by providing users with eco-friendly recipes and tips. Implemented an user-admin, order and payment system. Built with React, Node.js, Express, and MongoDB (MERN stack).",
     id: 1,
+    url: "https://github.com/ShiyangNg/myecoeats",
   },
   {
-    url: WeatherApp,
+    image: WeatherApp,
     title: "Weather Forecast App",
-    description: "A simple and clean weather application that provides current weather conditions for any city. Built with HTML, CSS, and JavaScript, using the AccuWeather API.",
+    description:
+      "A simple and clean weather app that provides current weather conditions for any city. Built with Firebase, HTML, CSS, and JavaScript, using the AccuWeather API.",
     id: 2,
+    url: "https://github.com/ShiyangNg/weather-app",
   },
   {
-    url: RecipeBook,
+    image: RecipeBook,
     title: "Recipe Book App",
+    description: 'A recipe book app that allows users to store and manage their favorite recipes with ease. Built with Firebase, HTML, CSS and JavaScript for real-time data storage and retrieval.',
     id: 3,
+    url: "https://github.com/ShiyangNg/recipe-book",
   },
-  
 ];
