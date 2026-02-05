@@ -44,7 +44,7 @@ const MultiLayerParallax = () => {
             6px 6px 10px rgba(0,0,0,0.5)
           `, }}
 
-        className="pb-[670px] font-bold text-sky-50 text-7xl md:text-8xl z-10"
+        className="pb-[670px] text-sky-50 text-7xl md:text-8xl z-10"
       >
         DARE TO DREAM
       </motion.h1>
