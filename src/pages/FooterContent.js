@@ -88,6 +88,7 @@ const Section3 = () => {
     requestAnimationFrame(animateScroll);
   };
 
+
   return (
     <div className="relative text-white flex items-start justify-between">
       {contextHolder}
@@ -153,7 +154,7 @@ const Section3 = () => {
           onClick={() =>
             window.open(
               "https://www.linkedin.com/in/shi-yang-ng-0237242ba/",
-              "_blank"
+              "_blank",
             )
           }
         >
@@ -229,13 +230,51 @@ const Section3 = () => {
 };
 
 const Nav = () => {
+  
+   const scrollToHeight = (height) => {
+    animateScroll(height);
+  };
+
+    const animateScroll = (targetPosition, duration = 1500) => {
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1); // Normalize progress (0 to 1)
+
+      // Smooth scrolling using an ease-out effect
+      const easeOut = 1 - Math.pow(1 - progress, 3); // Cubic easing function
+
+      window.scrollTo(0, start + (targetPosition - start) * easeOut);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  };
+
+  const scrollToBottom = () => {
+    animateScroll(document.documentElement.scrollHeight);
+  };
+  
   return (
     <div className="text-white flex shrink-0 gap-20">
-      <div className="flex flex-col gap-2">
-        <p>About</p>
-        <p>Experience</p>
-        <p>Projects</p>
-        <p>Contact</p>
+      <div className="flex flex-col gap-2 items-start">
+        <button onClick={() => scrollToHeight(window.innerHeight * 2.5 - 140)}>
+          About
+        </button>
+        <button onClick={() => scrollToHeight(window.innerHeight * 3.5 - 140)}>
+          Experience
+        </button>
+        <button onClick={() => scrollToHeight(window.innerHeight * 4.5 - 140)}>
+          Projects
+        </button>
+        <button >
+          Contact
+        </button>
       </div>
     </div>
   );

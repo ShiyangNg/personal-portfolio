@@ -83,11 +83,12 @@ const Header = () => {
     document.body.removeChild(link);
   };
 
+  if (!showHeader) {
+    return null;
+  }
+
   return (
-    <motion.div
-      initial={{ opacity: 1, y: 0 }}
-      animate={{ opacity: showHeader ? 1 : 0, y: showHeader ? 0 : -10 }}
-      duration={1}
+    <div
       className={`py-4 px-8 fixed top-0 w-full flex text-white items-center font-montserrat transition-all duration-300 z-50 ${
         navbar ? "bg-black/30 backdrop-blur-xs" : "bg-black"
       }`}
@@ -198,7 +199,7 @@ const Header = () => {
           </motion.button>
         </Reveal>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

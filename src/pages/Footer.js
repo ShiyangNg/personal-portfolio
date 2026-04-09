@@ -9,7 +9,7 @@ export default function Footer() {
       style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
     >
       <div className='fixed bottom-0 h-[100vh] w-full'>
-        <FooterContent />
+        <FooterContent/>
       </div>
     </div>
   )
