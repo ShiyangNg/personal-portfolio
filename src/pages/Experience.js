@@ -34,22 +34,36 @@ const Experience = () => {
       {/* <img className="w-72" src={NexperiaIntern} alt="" /> */}
       <div className="space-y-1">
         <div className="text-xl flex justify-between font-bold">
-          <div>Nexperia, Dongguan, Guangdong China</div>
+          <div>Nexperia, Dongguan, Guangdong, China 📍</div>
           <div>May - July 2025</div>
         </div>
         <div className="text-xl font-bold">Software Developer</div>
         <div className="space-y-1">
           <li>
-            Developed a Secure File Management System​ – a full-stack solution
-            with ​NestJS, TypeORM, and React, enabling secure file uploads,
-            version control, and atomic rollbacks.
+            Developed a full-stack application with a clean dashboard UI using
+            Ant Design, React and TypeScript, reduced file recovery time and
+            improved system reliability through an intuitive version control
+            interface.
           </li>
           <li>
-            Enhanced User Experience​ – Implemented ​dynamic EN/CN localization​
-            and an intuitive UI with ​Ant Design & TailwindCSS
+            Optimised backend performance by integrating REST APIs and SMB
+            Protocol with NestJS and PostgreSQL, enabling seamless
+            cross-platform file sharing for 250+ concurrent users while reducing
+            data access latency.
           </li>
           <li>
-            Tech Stack:​ NestJS · TypeScript · TypeORM · PostgreSQL · React ·
+            Engineered an automated data pipeline to clean and standardise
+            system metadata, leveraging Python and SQL to build a real-time
+            performance dashboard that provided leadership with actionable
+            insights into storage efficiency.
+          </li>
+          <li>
+            Initiated and delivered a comprehensive technical presentation
+            using Canva on Generative AI technologies and automation workflows
+            for 20+ employees to drive internal AI awareness.
+          </li>
+          <li>
+            Tech Stack: NestJS · TypeScript · TypeORM · PostgreSQL · React ·
             TailwindCSS · Ant Design · SMB Protocol · React-i18next
           </li>
         </div>
