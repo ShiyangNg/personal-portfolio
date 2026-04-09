@@ -32,7 +32,7 @@ const Section2 = () => {
           // #d8d5db
           className="text-white text-[12vw] leading-[0.8] mt-10 text-block"
         >
-          Get In Touch
+          Get In Touch 
         </motion.h1>
       </Reveal>
     </div>
@@ -220,7 +220,7 @@ const Section3 = () => {
           }}
           className="text-white opacity-0"
         >
-          © 2025 Ng Shi Yang
+          © 2026 Ng Shi Yang
           {/* <br />
         All rights reserved. */}
         </motion.p>
@@ -256,10 +256,6 @@ const Nav = () => {
     requestAnimationFrame(animate);
   };
 
-  const scrollToBottom = () => {
-    animateScroll(document.documentElement.scrollHeight);
-  };
-  
   return (
     <div className="text-white flex shrink-0 gap-20">
       <div className="flex flex-col gap-2 items-start">
@@ -271,9 +267,6 @@ const Nav = () => {
         </button>
         <button onClick={() => scrollToHeight(window.innerHeight * 4.5 - 140)}>
           Projects
-        </button>
-        <button >
-          Contact
         </button>
       </div>
     </div>
