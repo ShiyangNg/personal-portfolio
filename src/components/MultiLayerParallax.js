@@ -50,7 +50,7 @@ const MultiLayerParallax = () => {
         // is the up/down knob. Centered horizontally with inset-x-0 + text-center
         // (NOT a translate) because framer-motion drives the inline transform
         // here (scale/rotate/y) and would override any translate class.
-        className="absolute inset-x-0 top-[22%] text-center whitespace-nowrap text-sky-50 text-7xl md:text-8xl z-10"
+        className="absolute inset-x-0 top-[8%] text-center whitespace-nowrap text-sky-50 text-7xl md:text-8xl z-10"
       >
         DARE TO DREAM
       </motion.h1>

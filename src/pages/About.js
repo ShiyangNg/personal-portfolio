@@ -8,30 +8,18 @@ import AboutCard from "../components/AboutCard";
 import Section1Bg from "../assets/images/Section1Bg.avif";
 import Myself from "../assets/images/Me.jpg";
 
-const About = ({ id }) => {
+const About = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
   });
 
-  // const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  // const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const isSticky = useTransform(scrollYProgress, [0.8, 1], [false, true]); // Transition near 200vh
-  const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
-  const heroY = useTransform(scrollYProgress, [0, 0.3], ["0px", "-30px"]);
-
-  const textVariant = {
-    hidden: { opacity: 0, y: 12 },
-    show: (i = 1) => ({ opacity: 1, y: 0, transition: { delay: 0.12 * i } }),
-  };
   const Section1 = () => {
     const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
     const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
     return (
       <motion.div
-        id={id}
-        scrollYProgress={scrollYProgress}
         style={{
           scale,
           rotate,
@@ -44,21 +32,28 @@ const About = ({ id }) => {
     );
   };
 
-  const Section2 = ({ id }) => {
-    const scale = useTransform(scrollYProgress, [0, 0.25], [0.8, 1]);
-    const rotate = useTransform(scrollYProgress, [0, 0.25], [-10, 0]);
+  const Section2 = () => {
+    // Drive the intro from THIS section's own scroll entry (not the whole
+    // 700vh main), so the animation finishes exactly as the card reaches the
+    // top of the viewport instead of continuing into the next section.
+    const sectionRef = useRef(null);
+    const { scrollYProgress: sectionProgress } = useScroll({
+      target: sectionRef,
+      offset: ["start end", "start start"],
+    });
+    // Subtle scale only — no rotate. Rotating a text-heavy card while it scrubs
+    // with scroll causes visible motion smear; a gentle scale reads as a clean
+    // settle instead. will-change hints the browser to keep it crisp.
+    const scale = useTransform(sectionProgress, [0, 1], [0.96, 1]);
     return (
       <motion.div
-        id={id}
-        scrollYProgress={scrollYProgress}
+        ref={sectionRef}
         style={{
-          position: isSticky ? "sticky" : "relative",
-          top: isSticky ? "0px" : "auto",
           scale,
-          rotate,
+          willChange: "transform",
           backgroundImage: `url(${AboutImage})`,
         }}
-        className="bg-black sticky h-[100vh] font-montserrat text-white p-24"
+        className="bg-black sticky top-0 h-[100vh] font-montserrat text-white p-24"
       >
         <Reveal>
           <div className="text-7xl font-bold pb-10">About Me</div>
@@ -206,9 +201,18 @@ const About = ({ id }) => {
   //   );
   // };
   return (
-    <main className="relative h-[700vh]">
+    <main ref={ref} className="relative h-[700vh]">
+      {/* Stable scroll anchors. The sections themselves are position: sticky and
+          get pinned, so their offsetTop reports the pinned position, not their
+          resting slot — clicking About/Experience then lands in the wrong place.
+          These zero-height, non-sticky markers sit at each slot boundary
+          (Section1 0–100vh, About 100–200vh, Experience 200–300vh,
+          Projects 300–700vh) and never move, so nav math is always correct. */}
+      <div id="about" className="absolute top-[100vh] left-0 h-0 w-0" />
+      <div id="experience" className="absolute top-[200vh] left-0 h-0 w-0" />
+      <div id="projects" className="absolute top-[300vh] left-0 h-0 w-0" />
       <Section1 />
-      <Section2 id="about" />
+      <Section2 />
       <Experience />
       <Projects />
     </main>

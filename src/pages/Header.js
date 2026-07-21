@@ -61,6 +61,10 @@ const Header = () => {
     const target = document.querySelector(selector);
     if (!target) return;
 
+    // Sum the offsetTop chain (transform-independent layout position). The
+    // targets are non-sticky, zero-height anchor markers placed at each
+    // section's resting position, so this is stable even when the sticky
+    // sections above are currently pinned.
     let top = 0;
     for (let node = target; node; node = node.offsetParent) {
       top += node.offsetTop;
