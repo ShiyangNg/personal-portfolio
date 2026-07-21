@@ -16,6 +16,7 @@ const Projects = () => {
 
   return (
     <motion.div
+      id="projects"
       scrollYProgress={scrollYProgress}
       style={{
         position: isSticky ? "sticky" : "relative",

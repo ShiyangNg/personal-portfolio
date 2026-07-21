@@ -13,6 +13,7 @@ const Experience = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [-5, 0]);
   return (
     <motion.div
+      id="experience"
       // ref={ref}
       scrollYProgress={scrollYProgress}
       style={{

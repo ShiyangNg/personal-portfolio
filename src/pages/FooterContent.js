@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Reveal } from "../components/ultilities/Reveal";
-import { motion, useInView, useAnimation } from "framer-motion";
-import { Button, message, Space } from "antd";
+import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -40,14 +39,22 @@ const Section2 = () => {
 };
 
 const Section3 = () => {
-  const [messageApi, contextHolder] = message.useMessage();
   const email = "ngshiyang@gmail.com";
   const email2 = "ngsh0069@e.ntu.edu.sg";
+
+  // Lightweight toast (replaces antd's message API): holds a message string,
+  // shown briefly then auto-cleared.
+  const [toast, setToast] = useState("");
+  useEffect(() => {
+    if (!toast) return;
+    const timer = setTimeout(() => setToast(""), 2000);
+    return () => clearTimeout(timer);
+  }, [toast]);
 
   // copy a specific address and show a single success message
   const handleCopy = (addr) => {
     navigator.clipboard.writeText(addr).then(() => {
-      messageApi.success("Email copied to clipboard!");
+      setToast("Email copied to clipboard!");
     });
   };
 
@@ -70,28 +77,28 @@ const Section3 = () => {
   }, []);
 
   const scrollToTop = () => {
-    const duration = 2000;
-    const start = window.scrollY;
-    const startTime = performance.now();
-
-    const animateScroll = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      window.scrollTo(0, start * (1 - progress));
-
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    requestAnimationFrame(animateScroll);
+    if (window.lenis) {
+      window.lenis.scrollTo(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
 
   return (
     <div className="relative text-white flex items-start justify-between">
-      {contextHolder}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] rounded-md bg-white px-4 py-2 text-sm font-medium text-black shadow-lg"
+          >
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div>
         <Reveal>
           <div className="font-bold">MESSAGE</div>
@@ -230,44 +237,37 @@ const Section3 = () => {
 };
 
 const Nav = () => {
-  
-   const scrollToHeight = (height) => {
-    animateScroll(height);
-  };
+  // Scroll to a section by its anchor id so it sits flush at the top of the
+  // viewport (filling the whole page, under the translucent nav — no header
+  // offset). Routes through the shared Lenis instance (same as the top nav).
+  //
+  // Uses the offsetTop chain (transform-independent layout position) rather
+  // than an element target, because the sections carry framer-motion
+  // scale/rotate transforms that skew getBoundingClientRect().
+  const scrollToSection = (selector) => {
+    const target = document.querySelector(selector);
+    if (!target) return;
 
-    const animateScroll = (targetPosition, duration = 1500) => {
-    const start = window.scrollY;
-    const startTime = performance.now();
+    let top = 0;
+    for (let node = target; node; node = node.offsetParent) {
+      top += node.offsetTop;
+    }
 
-    const animate = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1); // Normalize progress (0 to 1)
-
-      // Smooth scrolling using an ease-out effect
-      const easeOut = 1 - Math.pow(1 - progress, 3); // Cubic easing function
-
-      window.scrollTo(0, start + (targetPosition - start) * easeOut);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
+    if (window.lenis) {
+      window.lenis.scrollTo(top);
+    } else {
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   return (
     <div className="text-white flex shrink-0 gap-20">
       <div className="flex flex-col gap-2 items-start">
-        <button onClick={() => scrollToHeight(window.innerHeight * 2.5 - 140)}>
-          About
-        </button>
-        <button onClick={() => scrollToHeight(window.innerHeight * 3.5 - 140)}>
+        <button onClick={() => scrollToSection("#about")}>About</button>
+        <button onClick={() => scrollToSection("#experience")}>
           Experience
         </button>
-        <button onClick={() => scrollToHeight(window.innerHeight * 4.5 - 140)}>
-          Projects
-        </button>
+        <button onClick={() => scrollToSection("#projects")}>Projects</button>
       </div>
     </div>
   );

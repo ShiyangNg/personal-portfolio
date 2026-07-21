@@ -18,6 +18,10 @@ function App() {
       smoothTouch: true, // Enable smooth touch scrolling
     });
 
+    // Expose the single Lenis instance so nav links can drive it directly
+    // (avoids a second window.scrollTo loop fighting Lenis).
+    window.lenis = lenis;
+
     // Update Lenis on each animation frame
     const raf = (time) => {
       lenis.raf(time);
@@ -29,6 +33,9 @@ function App() {
     // Cleanup Lenis instance when component unmounts
     return () => {
       lenis.destroy();
+      if (window.lenis === lenis) {
+        delete window.lenis;
+      }
     };
   }, []);
 

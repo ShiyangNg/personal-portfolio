@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import { Reveal } from "../components/ultilities/Reveal";
@@ -6,6 +6,7 @@ import About from "./About";
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
+  const headerRef = useRef(null);
   const changeBackground = () => {
     // console.log(window.scrollY);
     if (window.scrollY > 0) {
@@ -45,33 +46,31 @@ const Header = () => {
     };
   }, []);
 
-  const animateScroll = (targetPosition, duration = 1500) => {
-    const start = window.scrollY;
-    const startTime = performance.now();
+  // Scroll to a section by its anchor id so it sits flush at the top of the
+  // viewport (filling the whole page). The nav bar is intentionally
+  // translucent, so the section is meant to show *under* it — no header
+  // offset is subtracted. Routes through the shared Lenis instance so there is
+  // a single smooth-scroll animation instead of two competing loops.
+  //
+  // NOTE: the sections carry framer-motion scale/rotate transforms and toggle
+  // position: sticky, so getBoundingClientRect() (what Lenis uses for element
+  // targets) returns the *transformed* box and lands in the wrong place. We
+  // instead sum the offsetTop chain, which is the transform-independent layout
+  // position, and pass it to Lenis as a plain number.
+  const scrollToSection = (selector) => {
+    const target = document.querySelector(selector);
+    if (!target) return;
 
-    const animate = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1); // Normalize progress (0 to 1)
+    let top = 0;
+    for (let node = target; node; node = node.offsetParent) {
+      top += node.offsetTop;
+    }
 
-      // Smooth scrolling using an ease-out effect
-      const easeOut = 1 - Math.pow(1 - progress, 3); // Cubic easing function
-
-      window.scrollTo(0, start + (targetPosition - start) * easeOut);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  };
-
-  const scrollToHeight = (height) => {
-    animateScroll(height);
-  };
-
-  const scrollToBottom = () => {
-    animateScroll(document.documentElement.scrollHeight);
+    if (window.lenis) {
+      window.lenis.scrollTo(top);
+    } else {
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   const downloadResume = () => {
@@ -89,12 +88,14 @@ const Header = () => {
 
   return (
     <div
+      ref={headerRef}
+      id="site-header"
       className={`py-4 px-8 fixed top-0 w-full flex text-white items-center font-montserrat transition-all duration-300 z-50 ${
         navbar ? "bg-black/30 backdrop-blur-xs" : "bg-black"
       }`}
     >
       <motion.button
-        onClick={() => scrollToHeight(window.innerHeight * 2.5 - 140)}
+        onClick={() => scrollToSection("#about")}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="pr-4"
@@ -103,7 +104,7 @@ const Header = () => {
         <Reveal>About</Reveal>
       </motion.button>
       <motion.button
-        onClick={() => scrollToHeight(window.innerHeight * 3.5 - 140)}
+        onClick={() => scrollToSection("#experience")}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="pr-4"
@@ -112,7 +113,7 @@ const Header = () => {
         <Reveal>Experience</Reveal>
       </motion.button>
       <motion.button
-        onClick={() => scrollToHeight(window.innerHeight * 4.5 - 140)}
+        onClick={() => scrollToSection("#projects")}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="pr-4"
@@ -129,7 +130,7 @@ const Header = () => {
         <Reveal> Experience</Reveal>
       </motion.button> */}
       <motion.button
-        onClick={scrollToBottom}
+        onClick={() => scrollToSection("#footer")}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="pr-4"
